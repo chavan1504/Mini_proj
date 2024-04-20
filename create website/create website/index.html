@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="box">
+        <div class="form" id="loginFormContainer">
+            <h2>Login Form</h2>
+            <form id="loginForm">
+                <div class="inputbox">
+                    <input type="text" id="loginUsername" required>
+                    <span>Username</span>
+                </div>
+                <div class="inputbox">
+                    <input type="password" id="loginPassword" required>
+                    <span>Password</span>
+                </div>
+                <input type="submit" value="Login" class="sub">
+            </form>
+        </div>
+
+        <div class="form" id="signupFormContainer" style="display:none;">
+            <h2>Signup Form</h2>
+            <form id="signupForm">
+                <div class="inputbox">
+                    <input type="text" id="signupUsername" required>
+                    <span>Username</span>
+                </div>
+                <div class="inputbox">
+                    <input type="email" id="signupEmail" required>
+                    <span>Email</span>
+                </div>
+                <div class="inputbox">
+                    <input type="password" id="signupPassword" required>
+                    <span>Password</span>
+                </div>
+                <input type="submit" value="Sign Up" class="sub">
+            </form>
+        </div>
+    </div>
+
+    <button id="switchButton">Switch to Signup</button>
+
+    <script>
+
+        const loginFormContainer = document.getElementById("loginFormContainer");
+        const signupFormContainer = document.getElementById("signupFormContainer");
+
+        function switchForms() {
+            if (loginFormContainer.style.display === "none") {
+                loginFormContainer.style.display = "block";
+                signupFormContainer.style.display = "none";
+                document.getElementById("switchButton").textContent = "Switch to Signup";
+            } else {
+                loginFormContainer.style.display = "none";
+                signupFormContainer.style.display = "block";
+                document.getElementById("switchButton").textContent = "Switch to Login";
+            }
+        }
+
+        document.getElementById("switchButton").addEventListener("click", switchForms);
+
+        document.getElementById("signupForm").addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you can add backend logic for signup if needed
+            alert("Signup Successful!");
+            setTimeout(function() {
+                window.location.href = "home.html";
+            }, 2000);
+        });
+
+        document.getElementById("loginForm").addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you can add backend logic for login if needed
+            alert("Login Successful!");
+            setTimeout(function() {
+                window.location.href = "home.html";
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
+
