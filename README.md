@@ -1,1 +1,1 @@
-# Mini_proj : Expense Tracker 
+# Expense Tracker 
